@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Project Methodology And Data Science</title>
+  <meta name="description" content="">
+
+  <link rel="canonical" href="http://0.0.0.0:4000/jupyter-book/02.html">
+  <link rel="alternate" type="application/rss+xml" title="Jupyter Book" href="http://0.0.0.0:4000/jupyter-book/feed.xml">
+
+  <meta property="og:url"         content="http://0.0.0.0:4000/jupyter-book/02.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Project Methodology And Data Science" />
+<meta property="og:description" content="" />
+<meta property="og:image"       content="" />
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage":
+    "http://0.0.0.0:4000/jupyter-book/02.html",
+  "headline":
+    "Project Methodology And Data Science",
+  "datePublished":
+    "2019-06-07T00:33:14-05:00",
+  "dateModified":
+    "2019-06-07T00:33:14-05:00",
+  "description":
+    "",
+  "author": {
+    "@type": "Person",
+    "name": "The Jupyter Book Community"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://0.0.0.0:4000/jupyter-book",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "http://0.0.0.0:4000/jupyter-book",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+  <link rel="stylesheet" href="/jupyter-book/assets/css/styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css ">
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/jupyter-book/images/logo/favicon.ico">
+
+  <!-- MathJax Config -->
+  <!-- Allow inline math using $ and automatically break long math lines -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    CommonHTML: {
+        linebreaks: {
+            automatic: true,
+        },
+    },
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_CHTML' async></script>
+
+  <!-- DOM updating function -->
+  <script>
+const runWhenDOMLoaded = cb => {
+  if (document.readyState != 'loading') {
+    cb()
+  } else if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', cb)
+  } else {
+    document.attachEvent('onreadystatechange', function() {
+      if (document.readyState == 'complete') cb()
+    })
+  }
+}
+
+// Helper function to init things quickly
+initFunction = function(myfunc) {
+  runWhenDOMLoaded(myfunc);
+  document.addEventListener('turbolinks:load', myfunc);
+};
+</script>
+
+  <!-- Define some javascript variables that will be useful in other javascript -->
+  <script>
+    const site_basename = '/jupyter-book';
+  </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="/jupyter-book/assets/js/anchor.min.js"  type="text/javascript"></script>
+  <script>
+
+initFunction(function () {
+    anchors.add("main h1, main h2, main h3, main h4")
+});
+
+</script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="/jupyter-book/assets/js/turbolinks.js" async></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Load nbinteract for widgets -->
+  
+
+  <!-- Load Thebelab for interactive widgets -->
+  <!-- Include Thebelab for interactive code if it's enabled -->
+
+
+<!-- Display Thebelab button in each code cell -->
+<script>
+/**
+ * Set up thebelab button for code blocks
+ */
+
+const thebelabCellButton = id =>
+  `<a id="thebelab-cell-button-${id}" class="btn thebebtn o-tooltip--left" data-tooltip="Interactive Mode">
+    <img src="/jupyter-book/assets/images/edit-button.svg" alt="Start interactive mode">
+  </a>`
+
+
+const addThebelabButtonToCodeCells =  () => {
+
+  const codeCells = document.querySelectorAll('div.input_area > div.highlighter-rouge:not(.output) pre')
+  codeCells.forEach((codeCell, index) => {
+    const id = codeCellId(index)
+    codeCell.setAttribute('id', id)
+    if (document.getElementById("thebelab-cell-button-" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', thebelabCellButton(id));
+    }
+  })
+}
+
+initFunction(addThebelabButtonToCodeCells);
+</script>
+
+
+
+<script type="text/x-thebe-config">
+    {
+      requestKernel: true,
+      binderOptions: {
+        repo: 'jupyter/jupyter-book',
+        ref: 'gh-pages',
+      },
+      codeMirrorConfig: {
+        theme: "abcdef"
+      },
+      kernelOptions: {
+        name: 'SQL',
+      }
+    }
+</script>
+<script src="https://unpkg.com/thebelab@0.4.0/lib/index.js"></script>
+<script>
+    /**
+     * Add attributes to Thebelab blocks
+     */
+
+    const initThebelab = () => {
+        const addThebelabToCodeCells = () => {
+            console.log("Adding thebelab to code cells...");
+            // If Thebelab hasn't loaded, wait a bit and try again. This
+            // happens because we load ClipboardJS asynchronously.
+            if (window.thebelab === undefined) {
+                setTimeout(addThebelabToCodeCells, 250)
+            return
+            }
+
+            // If we already detect a Thebelab cell, don't re-run
+            if (document.querySelectorAll('div.thebelab-cell').length > 0) {
+                return;
+            }
+
+            // Find all code cells, replace with Thebelab interactive code cells
+            const codeCells = document.querySelectorAll('.input_area pre')
+            codeCells.forEach((codeCell, index) => {
+                const id = codeCellId(index)
+                codeCell.setAttribute('data-executable', 'true')
+
+                // Figure out the language it uses and add this too
+                var parentDiv = codeCell.parentElement.parentElement;
+                var arrayLength = parentDiv.classList.length;
+                for (var ii = 0; ii < arrayLength; ii++) {
+                    var parts = parentDiv.classList[ii].split('language-');
+                    if (parts.length === 2) {
+                        // If found, assign dataLanguage and break the loop
+                        var dataLanguage = parts[1];
+                        break;
+                    }
+                }
+                codeCell.setAttribute('data-language', dataLanguage)
+
+                // If the code cell is hidden, show it
+                var inputCheckbox = document.querySelector(`input#hidebtn${codeCell.id}`);
+                if (inputCheckbox !== null) {
+                    setCodeCellVisibility(inputCheckbox, 'visible');
+                }
+            });
+
+            // Remove the event listener from the page so keyboard press doesn't
+            // Change page
+            document.removeEventListener('keydown', initPageNav)
+            keyboardListener = false;
+
+            // Init thebelab
+            thebelab.bootstrap();
+
+            // Remove copy buttons since they won't work anymore
+            const copyAndThebeButtons = document.querySelectorAll('.copybtn, .thebebtn')
+            copyAndThebeButtons.forEach((button, index) => {
+                button.remove();
+            });
+
+            // Remove outputs since they'll be stale
+            const outputs = document.querySelectorAll('.output *, .output')
+            outputs.forEach((output, index) => {
+                output.remove();
+            });
+        }
+
+        // Add event listener for the function to modify code cells
+        const thebelabButtons = document.querySelectorAll('[id^=thebelab], [id$=thebelab]')
+        thebelabButtons.forEach((thebelabButton,index) => {
+            if (thebelabButton === null) {
+                setTimeout(initThebelab, 250)
+                return
+            };
+            thebelabButton.addEventListener('click', addThebelabToCodeCells);
+        });
+    }
+
+    // Initialize Thebelab
+    initFunction(initThebelab);
+</script>
+
+
+
+  <!-- Load the auto-generating TOC -->
+  <script src="/jupyter-book/assets/js/tocbot.min.js"  type="text/javascript"></script>
+  <script>
+var initToc = function () {
+  tocbot.init({
+    tocSelector: 'nav.onthispage',
+    contentSelector: '.c-textbook__content',
+    headingSelector: 'h2, h3',
+    orderedList: false,
+    collapseDepth: 6,
+    listClass: 'toc__menu',
+    activeListItemClass: "",  // Not using
+    activeLinkClass: "", // Not using
+  });
+  tocbot.refresh();
+}
+initFunction(initToc);
+</script>
+
+  <!-- Google analytics -->
+  <script src="/jupyter-book/assets/js/ga.js" async></script>
+
+  <!-- Clipboard copy button -->
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" async></script>
+
+  <!-- Load JS that depends on site variables -->
+  <script>
+/**
+ * Set up copy/paste for code blocks
+ */
+const codeCellId = index => `codecell${index}`
+
+const clipboardButton = id =>
+  `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
+    <img src="/jupyter-book/assets/images/copy-button.svg" alt="Copy to clipboard">
+  </a>`
+
+// Clears selected text since ClipboardJS will select the text when copying
+const clearSelection = () => {
+  if (window.getSelection) {
+    window.getSelection().removeAllRanges()
+  } else if (document.selection) {
+    document.selection.empty()
+  }
+}
+
+// Changes tooltip text for two seconds, then changes it back
+const temporarilyChangeTooltip = (el, newText) => {
+  const oldText = el.getAttribute('data-tooltip')
+  el.setAttribute('data-tooltip', newText)
+  setTimeout(() => el.setAttribute('data-tooltip', oldText), 2000)
+}
+
+const addCopyButtonToCodeCells = () => {
+  // If ClipboardJS hasn't loaded, wait a bit and try again. This
+  // happens because we load ClipboardJS asynchronously.
+  if (window.ClipboardJS === undefined) {
+    setTimeout(addCopyButtonToCodeCells, 250)
+    return
+  }
+
+  const codeCells = document.querySelectorAll('div.c-textbook__content > div.highlighter-rouge > div.highlight > pre, div.input_area pre')
+  codeCells.forEach((codeCell, index) => {
+    const id = codeCellId(index)
+    codeCell.setAttribute('id', id)
+    if (document.getElementById("copy-button" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', clipboardButton(id));
+    }
+  })
+
+  const clipboard = new ClipboardJS('.copybtn')
+  clipboard.on('success', event => {
+    clearSelection()
+    temporarilyChangeTooltip(event.trigger, 'Copied!')
+  })
+
+  clipboard.on('error', event => {
+    temporarilyChangeTooltip(event.trigger, 'Failed to copy')
+  })
+
+  // Get rid of clipboard before the next page visit to avoid memory leak
+  document.addEventListener('turbolinks:before-visit', () =>
+    clipboard.destroy()
+  )
+}
+
+initFunction(addCopyButtonToCodeCells);
+</script>
+
+
+  <!-- Hide cell code -->
+  
+<script>
+/**
+Add buttons to hide code cells
+*/
+
+
+var setCodeCellVisibility = function(inputField, kind) {
+    // Update the image and class for hidden
+    var id = inputField.getAttribute('data-id');
+    var codeCell = document.querySelector(`#${id} div.highlight`);
+
+    if (kind === "visible") {
+        codeCell.classList.remove('hidden');
+        inputField.checked = true;
+    } else {
+        codeCell.classList.add('hidden');
+        inputField.checked = false;
+    }
+}
+
+var toggleCodeCellVisibility = function (event) {
+    // The label is clicked, and now we decide what to do based on the input field's clicked status
+    if (event.target.tagName === "LABEL") {
+        var inputField = event.target.previousElementSibling;
+    } else {
+        // It is the span inside the target
+        var inputField = event.target.parentElement.previousElementSibling;
+    }
+
+    if (inputField.checked === true) {
+        setCodeCellVisibility(inputField, "visible");
+    } else {
+        setCodeCellVisibility(inputField, "hidden");
+    }
+}
+
+
+// Button constructor
+const hideCodeButton = id => `<input class="hidebtn" type="checkbox" id="hidebtn${id}" data-id="${id}"><label title="Toggle cell" for="hidebtn${id}" class="plusminus"><span class="pm_h"></span><span class="pm_v"></span></label>`
+
+var addHideButton = function () {
+  // If a hide button is already added, don't add another
+  if (document.querySelector('div.hidecode input') !== null) {
+      return;
+  }
+
+  // Find the input cells and add a hide button
+  document.querySelectorAll('div.input_area').forEach(function (item, index) {
+    if (!item.classList.contains("hidecode")) {
+        // Skip the cell if it doesn't have a hidecode class
+        return;
+    }
+
+    const id = codeCellId(index)
+    item.setAttribute('id', id);
+    // Insert the button just inside the end of the next div
+    item.querySelector('div').insertAdjacentHTML('beforeend', hideCodeButton(id))
+
+    // Set up the visibility toggle
+    hideLink = document.querySelector(`#${id} div.highlight + input + label`);
+    hideLink.addEventListener('click', toggleCodeCellVisibility)
+  });
+}
+
+
+// Initialize the hide buttos
+var initHiddenCells = function () {
+    // Add hide buttons to the cells
+    addHideButton();
+
+    // Toggle the code cells that should be hidden
+    document.querySelectorAll('div.hidecode input').forEach(function (item) {
+        setCodeCellVisibility(item, 'hidden');
+        item.checked = true;
+    })
+}
+
+initFunction(initHiddenCells);
+
+</script>
+
+
+  <!-- Load custom website scripts -->
+  <script src="/jupyter-book/assets/js/scripts.js" async></script>
+
+  <!-- Load custom user CSS and JS  -->
+  <script src="/jupyter-book/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/jupyter-book/assets/custom/custom.css">
+
+  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
+  
+<script>
+/**
+  * To auto-embed hub URLs in interact links if given in a RESTful fashion
+ */
+
+function getJsonFromUrl(url) {
+  var query = url.split('?');
+  if (query.length < 2) {
+    // No queries so just return false
+    return false;
+  }
+  query = query[1];
+  // Collect REST params into a dictionary
+  var result = {};
+  query.split("&").forEach(function(part) {
+    var item = part.split("=");
+    result[item[0]] = decodeURIComponent(item[1]);
+  });
+  return result;
+}
+    
+function dict2param(dict) {
+    params = Object.keys(dict).map(function(k) {
+        return encodeURIComponent(k) + '=' + encodeURIComponent(dict[k])
+    });
+    return params.join('&')
+}
+
+// Parse a Binder URL, converting it to the string needed for JupyterHub
+function binder2Jupyterhub(url) {
+  newUrl = {};
+  parts = url.split('v2/gh/')[1];
+  // Grab the base repo information
+  repoinfo = parts.split('?')[0];
+  var [org, repo, ref] = repoinfo.split('/');
+  newUrl['repo'] = ['https://github.com', org, repo].join('/');
+  newUrl['branch'] = ref
+  // Grab extra parameters passed
+  params = getJsonFromUrl(url);
+  if (params['filepath'] !== undefined) {
+    newUrl['subPath'] = params['filepath']
+  }
+  return dict2param(newUrl);
+}
+
+// Filter out potentially unsafe characters to prevent xss
+function safeUrl(url)
+{
+   return String(encodeURIComponent(url))
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+}
+
+function addParamToInternalLinks(hub) {
+  var links = document.querySelectorAll("a").forEach(function(link) {
+    var href = link.href;
+    // If the link is an internal link...
+    if (href.search("http://0.0.0.0:4000") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+      // Assume we're an internal link, add the hub param to it
+      var params = getJsonFromUrl(href);
+      if (params !== false) {
+        // We have REST params, so append a new one
+        params['jupyterhub'] = hub;
+      } else {
+        // Create the REST params
+        params = {'jupyterhub': hub};
+      }
+      // Update the link
+      var newHref = href.split('?')[0] + '?' + dict2param(params);
+      link.setAttribute('href', decodeURIComponent(newHref));
+    }
+  });
+  return false;
+}
+
+
+// Update interact links
+function updateInteractLink() {
+    // hack to make this work since it expects a ? in the URL
+    rest = getJsonFromUrl("?" + location.search.substr(1));
+    jupyterHubUrl = rest['jupyterhub'];
+    var hubType = null;
+    var hubUrl = null;
+    if (jupyterHubUrl !== undefined) {
+      hubType = 'jupyterhub';
+      hubUrl = jupyterHubUrl;
+    }
+
+    if (hubType !== null) {
+      // Sanitize the hubUrl
+      hubUrl = safeUrl(hubUrl);
+
+      // Add HTTP text if omitted
+      if (hubUrl.indexOf('http') < 0) {hubUrl = 'http://' + hubUrl;}
+      var interactButtons = document.querySelectorAll("button.interact-button")
+      var lastButton = interactButtons[interactButtons.length-1];
+      var link = lastButton.parentElement;
+
+      // If we've already run this, skip the link updating
+      if (link.nextElementSibling !== null) {
+        return;
+      }
+
+      // Update the link and add context div
+      var href = link.getAttribute('href');
+      if (lastButton.id === 'interact-button-binder') {
+        // If binder links exist, we need to re-work them for jupyterhub
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // If localhost, assume we're working from a local Jupyter server and remove `/hub`
+          first = [hubUrl, 'git-sync'].join('/')
+        } else {
+          first = [hubUrl, 'hub', 'user-redirect', 'git-sync'].join('/')
+        }
+        href = first + '?' + binder2Jupyterhub(href);
+      } else {
+        // If interact button isn't binderhub, assume it's jupyterhub
+        // If JupyterHub links, we only need to replace the hub url
+        href = href.replace("", hubUrl);
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // Assume we're working from a local Jupyter server and remove `/hub`
+          href = href.replace("/hub/user-redirect", "");
+        }
+      }
+      link.setAttribute('href', decodeURIComponent(href));
+
+      // Add text after interact link saying where we're launching
+      hubUrlNoHttp = decodeURIComponent(hubUrl).replace('http://', '').replace('https://', '');
+      link.insertAdjacentHTML('afterend', '<div class="interact-context">on ' + hubUrlNoHttp + '</div>');
+
+      // Update internal links so we retain the hub url
+      addParamToInternalLinks(hubUrl);
+    }
+}
+
+runWhenDOMLoaded(updateInteractLink)
+document.addEventListener('turbolinks:load', updateInteractLink)
+</script>
+
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script src="/jupyter-book/assets/js/lunr/lunr.min.js" type="text/javascript"></script>
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+initFunction(initQuery);
+</script>
+</head>
+
+  <body>
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <a href="https://jupyter.org/jupyter-book/intro.html"><img src="/jupyter-book/images/logo/logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
+  <h2 class="c-sidebar__title">Jupyter Book</h2>
+  <ul class="c-sidebar__chapters">
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/jupyter-book/01.html"
+        >
+          
+          SQL Server Machine Learning Services Architecture
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry c-sidebar__entry--active"
+          href="/jupyter-book/02.html"
+        >
+          
+          Project Methodology And Data Science
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/jupyter-book/03.html"
+        >
+          
+          Phase 1 - Business Understanding
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/jupyter-book/04.html"
+        >
+          
+          Phase 2 - Data Acquisition and Understanding
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/jupyter-book/05.html"
+        >
+          
+          Phase 3 - Modeling
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/jupyter-book/06.html"
+        >
+          
+          Phase 4 - Deployment
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/jupyter-book/07.html"
+        >
+          
+          Phase 5 - Customer Acceptance and Model Retraining
+        </a>
+
+        
+      </li>
+
+      
+    
+  </ul>
+  <p class="sidebar_footer">Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a></p>
+</nav>
+
+      
+      <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+      <aside class="sidebar__right">
+          <header><h4 class="nav__title"><i class="fa fa-list"></i>   On this page</h4></header>
+          <nav class="onthispage">
+          </nav>
+      </aside>
+      
+      <main class="c-textbook__page" tabindex="-1">
+          <div class="o-wrapper">
+            <div class="c-sidebar-toggle">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <button
+    id="js-sidebar-toggle"
+    class="hamburger hamburger--arrowalt is-active"
+  >
+    <span class="hamburger-box">
+      <span class="hamburger-inner"></span>
+    </span>
+    <span class="c-sidebar-toggle__label">Toggle Sidebar</span>
+  </button>
+</div>
+
+            
+<div class="buttons">
+<a href="/jupyter-book/content/02.ipynb" download>
+<button id="interact-button-download" class="interact-button">Download</button>
+</a>
+
+<button id="interact-button-thebelab" class="interact-button">Thebelab</button>
+
+
+
+
+
+
+
+
+
+<a href="https://mybinder.org/v2/gh/jupyter/jupyter-book/gh-pages?filepath=content%2F02.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/jupyter-book/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+
+
+</div>
+
+
+            <div class="c-textbook__content">
+              <p><img src="https://github.com/Microsoft/sqlworkshops/blob/master/graphics/solutions-microsoft-logo-small.png?raw=true" alt="Microsoft" />
+<br /></p>
+
+<h1 id="workshop-microsoft-sql-server-machine-learning-services">Workshop: Microsoft SQL Server Machine Learning Services</h1>
+
+<h4 id="a-microsoft-course-from-the-sql-server-team"><i>A Microsoft Course from the SQL Server team</i></h4>
+
+<h2 id="project-methodology-and-data-science">Project Methodology and Data Science</h2>
+
+<p style="border-bottom: 1px solid lightgrey;"></p>
+
+<h2><img style="float: left; margin: 0px 15px 15px 0px;" src="https://github.com/Microsoft/sqlworkshops/blob/master/graphics/textbubble.png?raw=true" />2.1 Creating a Data Science Project</h2>
+
+<p>This course covers the Process and Platform you can use for Data Science projects, using SQL Server 2019 (or higher). Using Machine Learning Services inside a database engine allows you to keep the data integrity you have built into your RDBMS, provides a high level of security, the ability to work on premises, in the cloud, or in a hybrid fashion, and eliminates data travel outside your database environment. It also allows your data professionals to work in the area they know well, and still allow Data Scientists to work with R or Python to perform predictive, clustering, and categorical models with easy deployment. This course shows an example of training and deploying a Machine Learning model, making predictions on data in-house.</p>
+
+<p>To begin, it’s best to focus not on the technologies you will use, but the process you can follow to determine the best solution. It’s important to involve the right team members in the project, especially where security is involved. The activities typically involved in an Advanced Analytics project contain the following steps:</p>
+
+<table style="width: 75%; tr:nth-child(even) {background-color: #f2f2f2;}; text-align: left; display: table; border-collapse: collapse; border-spacing: 2px; border-color: gray;">
+
+  <tr>
+    <th style="background-color: #1b20a1; color: white;">Step</th>
+    <th style="background-color: #1c6afc; color: white;">Description</th>
+    <th style="background-color: #1b20a1; color: white;">Typical Deliverable</th>
+  </tr>
+
+  <tr>
+    <td><b>Discovery</b></td>
+    <td>Initial Contact between technical teams, consultants, and business owners. <br /><i>Outcome: Problem statement definition</i></td>
+    <td><a href="https://github.com/microsoft/sqlworkshops/blob/master/SQLServerMLServices/assets/Project/1%20-%20Discovery.docx" target="_blank">Discovery Word Document</a></td>
+  </tr>
+
+  <tr>
+    <td><b>Envisioning</b></td>
+    <td>Technical team and consultants develop initial components of proposed solution. <br /><i>Outcome: Team briefing on the decision points for creating a solution</i></td>
+    <td><a href="https://github.com/microsoft/sqlworkshops/blob/master/SQLServerMLServices/assets/Project/2%20-%20Envisioning.pptx" target="_blank">Envisioning PowerPoint</a></td>
+  </tr>
+
+  <tr>
+    <td><b>Architecture Design Session (ADS)</b></td>
+    <td>Using the decision points from the previous phase, the technical team selects the components for a Proof of Concept exercise. <br /><i>Outcome: ADS Diagram and explanation of decisions</i></td>
+    <td><a href="https://github.com/microsoft/sqlworkshops/blob/master/SQLServerMLServices/assets/Project/3%20-%20ADS%20Decision%20Tree.xlsx" target="_blank">ADS Decision Matrix Excel Sheet</a> and <a href="https://github.com/microsoft/sqlworkshops/blob/master/SQLServerMLServices/assets/Project/3%20-%20ADS.vsdx" target="_blank">ADS Visio Template</a></td>
+  </tr>
+
+  <tr>
+    <td><b>Proof-Of-Concept (POC)</b></td>
+    <td>A small version of the solution is created, using the actual data flow. Here you discover any issues with the ADS output. <br /><i>Outcome: A simple example worked through end-to-end that demonstrates data flow.</i></td>
+    <td><a href="https://github.com/microsoft/sqlworkshops/blob/master/SQLServerMLServices/assets/Project/4%20-%20POC.mpp" target="_blank">POC Project Plan</a></td>
+  </tr>
+
+  <tr>
+    <td><b>Implementation</b></td>
+    <td>Project is put into place using the learnings from the ADS and POC, with regular CI/CD and other DevOps controls. If the previous activities result in a Predictive or Classification solution (including AI), then the <b>Data Science Process</b> described below is implemented here. <br /><i>Outcome: Completed project</i></td>
+    <td><a href="https://github.com/microsoft/sqlworkshops/blob/master/SQLServerMLServices/assets/Project/Project%20Plan.xlsx" target="_blank">Implementation Plan in Excel</a>  <a href="https://github.com/microsoft/sqlworkshops/blob/master/SQLServerMLServices/assets/Project/5%20-%20Implementation.mpp" target="_blank">(Full Microsoft Project File here)</a></td>
+  </tr>
+
+  <tr>
+    <td><b>Handoff</b></td>
+    <td>Post-mortem on the project is performed, end-customer or support staff is given control of the project, enhancements and V2 is discussed, team disbands. <br /><i>Outcome: Project post-mortem briefing, V2 discussion</i> </td>
+    <td><a href="https://github.com/microsoft/sqlworkshops/blob/master/SQLServerMLServices/assets/Project/6%20-%20Handoff.pptx" target="_blank">Handoff PowerPoint Briefing File</a></td>
+  </tr>
+
+  </table>
+
+<p>The output of this project planning is a high level architecture diagram, and a Project Plan defining the team and the timelines.</p>
+
+<p>During the Architecture Design Session <em>(ADS)</em> step, you will create your architecture. During the Implementation step, you will invoke the <em>Team Data Science Process</em>, which you’ll focus on for the rest of this course.</p>
+
+<h2><img style="float: left; margin: 0px 15px 15px 0px;" src="https://github.com/Microsoft/sqlworkshops/blob/master/graphics/pin.jpg?raw=true" />2.2 The Data Science Process</h2>
+
+<p>If the discovery and architecture for the solution results in the need for a Prediction, Classification or Artificial Intelligence solution, you’ll follow a Data Science process to understand the business requirements, examine the data from a customer database, create two experiments to find the best model, and deploy the completed model in a Stored Procedure that is called from a client application. This is in the Implementation step of the chart show above.</p>
+
+<p>In this particular solution you’ll set up your SQL Server environment and use a client tool to work with a database to create a predictive solution that you will deploy with a Stored Procedure.</p>
+
+<h2><img style="float: left; margin: 0px 15px 15px 0px;" src="https://github.com/Microsoft/sqlworkshops/blob/master/graphics/pin.jpg?raw=true" />2.2.1 Data Science</h2>
+
+<p>Data Science is an “umbrella” term that encompasses almost all Advanced Analytics. It combines the processes from working with data with technology, and also the scientific process.</p>
+
+<p><a href="https://azure.microsoft.com/en-us/resources/videos/data-science-for-beginners-series-the-5-questions-data-science-answers/"><strong>NOTE:</strong> You can learn more about the questions Data Science can answer here.</a></p>
+
+<p>
+<img src="https://github.com/Microsoft/sqlworkshops/blob/master/graphics/DataAndScience.png?raw=true" width="500" />
+<p>
+
+To work in the Data Science field, it's helpful to have a background in various maths families (linear algebra, statistics, even formal logic), computing data technologies (such as programming in functional and object-oriented languages, database technologies such as NoSQL and RDBMS's, and "Big Data" areas such as Spark) and a "domain" of knowledge in some general area (finance, healthcare, government, manufacturing and such) or a broad knowledge in many industries.
+
+<p>
+<img src="https://github.com/Microsoft/sqlworkshops/blob/master/graphics/NeedToKnow.png?raw=true" width="200" />
+<p>
+
+The Data Scientist performs multiple types of analysis, from historical descriptive evaluations through predictive and prescriptive analysis.
+
+<p>
+<img src="https://github.com/Microsoft/sqlworkshops/blob/master/graphics/TypesOfAnalysis.png?raw=true" width="500" />
+<p>
+
+To do predictive and prescriptive analysis, the Data Science team leverages *Machine Learning*. Machine Learning technologies consume large amounts of data in the form of *Features* (columns of data that are predictive or classifying in nature) and *Labels* (the data you want to predict or classify). For instance, knowing where someone grew up or traveled to can give you insight into the types of food they might like to eat.
+
+There are various "families" of algorithms that you can use to answer questions. They include the following:
+
+<p>
+<img src="https://github.com/Microsoft/sqlworkshops/blob/master/graphics/MLCapabilities.png?raw=true" width="500" />
+<p>
+
+Machine Learning uses algorithms to create (train) a completed *Model*. The training looks at various Features and "learns" how it affects a supplied "Label". It then selects the best path to work with data it has *not* seen. You can then send new data (Features) and the Model will return it's guess for the Label, usually along with how confident it is in the guess.
+
+Machine Learning is used in both Deep Learning and Artificial Intelligence. You can see this interaction here:
+
+<p>
+<img src="https://github.com/Microsoft/sqlworkshops/blob/master/graphics/AIDLProcess.png?raw=true" width="500" />
+<p>
+
+Machine Learning, when layered in certain ways, forms the concept of *Deep Learning*. Machine Learning also forms the basis for Artificial Intelligence, which normally involves adding in "sensory" areas like vision, text and language.
+
+<p>
+<img src="https://github.com/Microsoft/sqlworkshops/blob/master/graphics/AIProgression.png?raw=true" width="500" />
+<p>
+
+There are various Platforms you can use to implement Machine Learning, such as Spark, Hadoop, AzureML and more. In this course you'll focus on using the SQL Server Platform to create, train, and deploy your completed predictive Model.
+
+<h2><img style="float: left; margin: 0px 15px 15px 0px;" src="https://github.com/Microsoft/sqlworkshops/blob/master/graphics/pin.jpg?raw=true" />2.2.2 A Brief overview of The Team Data Science Process</h2>
+
+Now that you understand the technologies and Platforms behind Data Science, you need to understand a repeatable, scalable Process for your solutions.
+
+While it's tempting to start with the algorithms and the outputs, it's actually more important to understand the general process of a Data Science project. To do that, you can use the *Team Data Science Process* - in fact, you have been studying many of these steps already:
+
+<p>
+<img src="https://github.com/Microsoft/sqlworkshops/blob/master/graphics/tdsp.png?raw=true" width="500" />
+<p>
+
+Each of these phases has a specific set of phases you follow to complete them. You'll work with each in the course modules that follow.
+
+
+
+
+
+<h4>Phase One - Business Understanding</h4>
+
+Read the [Documentation Reference here](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/lifecycle-business-understanding)
+
+In this first step you identify the key business variables that the analysis needs to predict. We refer to these variables as the model targets, and we use the metrics associated with them to determine the success of the project.
+
+You've actually already done this step in the first three phases of the project we've been creating. You can take the outputs you created and include them as the assets for this step described in the documentation reference.
+
+<h4>Phase Two - Data Acquisition and Understanding</h4>
+
+Read the [Documentation Reference here](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/lifecycle-data)
+
+The Data Acquisition and Understanding phase of the TDSP you ingest or access data from various locations to answer the questions the organization has asked. In most cases, this data will be in multiple locations. Once the data is ingested into the system, you’ll need to examine it to see what it holds. All data needs cleaning, so after the inspection phase, you’ll replace missing values, add and change columns. You’ve already seen the Libraries you'll need to work with for Data Wrangling - Pandas being the most common in use.
+
+<p style="border-bottom: 1px solid lightgrey;"></p>
+<h4>Phase Three - Modeling</h4>
+
+In this phase, you will create the experiment runs, perform feature engineering, and run experiments with various settings and parameters. After selecting the best performing run, you will create a trained model and save it for operationalization in the next phase. This modeling is done with yet another set of Python Libraries - the most common being SciKit Learn and TensorFlow, You'll see this in action in just a bit.
+
+Read the [Documentation Reference here](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/lifecycle-modeling)
+
+<p style="border-bottom: 1px solid lightgrey;"></p>
+<h4>Phase Four - Deployment</h4>
+
+In this phase you will take the trained model and any other necessary assets and deploy them to a system that will respond to API requests.
+
+Read the [Documentation Reference here](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/lifecycle-deployment)
+
+<p style="border-bottom: 1px solid lightgrey;"></p>
+<h4>Phase Five - Customer Acceptance</h4>
+
+The final phase involves testing the model predictions on real-world queries to ensure that it meets all requirements. In this phase we also document the project so that all parameters are well-known. Finally, a mechanism is created to re-train the model.
+
+Read the [Documentation Reference here](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/lifecycle-acceptance)
+
+<p style="border-bottom: 1px solid lightgrey;"></p>
+
+
+As you can see, there are quite a few things to do to in a Data Science Machine Learning project. Rather than have you create an entire solution, there is one you can examine to see each phase. You'll do that throughout the rest of this course.
+
+
+<p><img style="float: left; margin: 0px 15px 15px 0px;" src="https://github.com/Microsoft/sqlworkshops/blob/master/graphics/checkbox.png?raw=true" /><b>Activity: Review/Create the Solution Architecture</b></p>
+
+In this activity, you will review (or if time permits, create) the architecture for your solution. Open the *./assets/Project* folder for this course, and locate the *ADS Decision Tree.xlsx* file you see there.
+
+NOTE: If you do not have Microsoft Excel installed, you can use the Visual Studio Excel Preview add-in by right-clicking the Excel file name in the Files area of the Explorer in Visual Studio Code - you can also &lt;a href="https://support.microsoft.com/en-us/help/979860/supported-versions-of-the-office-viewers" target=_blank&gt;install a viewer from this location&lt;/a&gt;.
+
+In an actual project, you would include the appropriate team members for each area, and document the discussions in the proper tab in the spreadsheet. For each area, you type each option for that function in the left-most column, and then put the reason you would, and would not, use that option for the tab's function in the next two columns. Your team gives each option a score, with 3 being the best choice, and 1 being the least desirable (multiple options may end up with the same score). Your team selects the option you want to suggest for that function. This exercise can take a few minutes, or several days, depending on how complex the solution becomes.
+
+Rank each of the tab's options from highest to lowest, and then place the winning option on the "Rollup" tab, along with your justification of that choice.
+
+This activity forms the basis of your solution, and it's diagram. For this course, you may only have time to examine each of these choices, but you should return to this process when you can spend more time on it.
+
+
+
+<p><img style="float: left; margin: 0px 15px 15px 0px;" src="https://github.com/Microsoft/sqlworkshops/blob/master/graphics/thinking.jpg?raw=true" /><b>For Further Study</b></p>
+
+<br />
+<br />
+
+- For a more complete explanation of the differences in Machine Learning, Artificial Intelligence and Deep Learning, <a href="https://clouddamcdnprodep.azureedge.net/gdc/gdcrBksvX/original?wt.mc_id=AID723408_QSG_SCL_343080" target="_blank">see this reference</a>
+- To learn more about Azure Data Studio, <a href="https://docs.microsoft.com/en-us/sql/azure-data-studio/what-is?view=sql-server-ver15" target="_blank">see this reference</a>
+
+
+<p><img style="float: left; margin: 0px 15px 15px 0px;" src="https://github.com/Microsoft/sqlworkshops/blob/master/graphics/education1.png?raw=true" /><b>Next</b>: Phase 1 - Business Understanding</p>
+
+Next, you'll start working through the Team Data Science Process with the first phase - *03 - Phase 1 - Business Understanding*. Open that Notebook to continue.
+</p></p></p></p></p></p></p></p></p></p></p></p></p></p>
+
+              <nav class="c-page__nav">
+  
+    
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/jupyter-book/01">
+      〈 <span class="u-margin-right-tiny"></span> SQL Server Machine Learning Servic...
+    </a>
+  
+
+  
+    
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/jupyter-book/03">
+      Phase 1 - Business Understanding <span class="u-margin-right-tiny"></span> 〉
+    </a>
+  
+</nav>
+
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+  </body>
+</html>
