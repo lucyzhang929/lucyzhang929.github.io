@@ -23,24 +23,26 @@
 - title: Project Methodology And Data Science
   url: /02
   not_numbered: true
-  expand_sections: true
-  sections:
-    - title: Phase 1 - Business Understanding
-      url: /03
-      not_numbered: true
 
-    - title: Phase 2 - Data Acquisition and Understanding
-      url: /04
-      not_numbered: true
+- title: Phase 1 - Business Understanding
+  url: /03
+  not_numbered: true
 
-    - title: Phase 3 - Modeling
-      url: /05
-      not_numbered: true
+- title: Phase 2 - Data Acquisition and Understanding
+  url: /04
+  not_numbered: true
 
-    - title: Phase 4 - Deployment
-      url: /06
-      not_numbered: true
+- title: Phase 3 - Modeling
+  url: /05
+  not_numbered: true
 
-    - title: Phase 5 - Customer Acceptance and Model Retraining
-      url: /07
-      not_numbered: true
+- title: Phase 4 - Deployment
+  url: /06
+  not_numbered: true
+
+- title: Phase 5 - Customer Acceptance and Model Retraining
+  url: /07
+  not_numbered: true
+      
+- title: Search
+  search: true      
