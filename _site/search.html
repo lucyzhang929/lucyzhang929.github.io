@@ -10,10 +10,10 @@
   <title>Search the site</title>
   <meta name="description" content="This is an example book built with Jupyter Books.">
 
-  <link rel="canonical" href="http://0.0.0.0:4000/jupyter-book/search">
-  <link rel="alternate" type="application/rss+xml" title="Jupyter Book" href="http://0.0.0.0:4000/jupyter-book/feed.xml">
+  <link rel="canonical" href="http://0.0.0.0:4000/search">
+  <link rel="alternate" type="application/rss+xml" title="SQL Server ML Services" href="http://0.0.0.0:4000/feed.xml">
 
-  <meta property="og:url"         content="http://0.0.0.0:4000/jupyter-book/search" />
+  <meta property="og:url"         content="http://0.0.0.0:4000/search" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Search the site" />
 <meta property="og:description" content="This is an example book built with Jupyter Books." />
@@ -25,39 +25,39 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage":
-    "http://0.0.0.0:4000/jupyter-book/search",
+    "http://0.0.0.0:4000/search",
   "headline":
     "Search the site",
   "datePublished":
-    "2019-06-07T00:33:14-05:00",
+    "2019-06-07T12:04:52-05:00",
   "dateModified":
-    "2019-06-07T00:33:14-05:00",
+    "2019-06-07T12:04:52-05:00",
   "description":
     "This is an example book built with Jupyter Books.",
   "author": {
     "@type": "Person",
-    "name": "The Jupyter Book Community"
+    "name": "Microsoft"
   },
   "publisher": {
     "@type": "Organization",
     "name": "Data 100 at UC Berkeley",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://0.0.0.0:4000/jupyter-book",
+      "url": "http://0.0.0.0:4000",
       "width": 60,
       "height": 60
     }
   },
   "image": {
     "@type": "ImageObject",
-    "url": "http://0.0.0.0:4000/jupyter-book",
+    "url": "http://0.0.0.0:4000",
     "height": 60,
     "width": 60
   }
 }
 
   </script>
-  <link rel="stylesheet" href="/jupyter-book/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css ">
   <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
@@ -76,7 +76,7 @@
   <meta name="theme-color" content="#233947">
 
   <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="/jupyter-book/images/logo/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="/images/logo/favicon.ico">
 
   <!-- MathJax Config -->
   <!-- Allow inline math using $ and automatically break long math lines -->
@@ -120,11 +120,11 @@ initFunction = function(myfunc) {
 
   <!-- Define some javascript variables that will be useful in other javascript -->
   <script>
-    const site_basename = '/jupyter-book';
+    const site_basename = '';
   </script>
 
   <!-- Add AnchorJS to let headers be linked -->
-  <script src="/jupyter-book/assets/js/anchor.min.js"  type="text/javascript"></script>
+  <script src="/assets/js/anchor.min.js"  type="text/javascript"></script>
   <script>
 
 initFunction(function () {
@@ -135,7 +135,7 @@ initFunction(function () {
 
   <!-- Include Turbolinks to make page loads fast -->
   <!-- https://github.com/turbolinks/turbolinks -->
-  <script src="/jupyter-book/assets/js/turbolinks.js" async></script>
+  <script src="/assets/js/turbolinks.js" async></script>
   <meta name="turbolinks-cache-control" content="no-cache">
 
   <!-- Load nbinteract for widgets -->
@@ -153,7 +153,7 @@ initFunction(function () {
 
 const thebelabCellButton = id =>
   `<a id="thebelab-cell-button-${id}" class="btn thebebtn o-tooltip--left" data-tooltip="Interactive Mode">
-    <img src="/jupyter-book/assets/images/edit-button.svg" alt="Start interactive mode">
+    <img src="/assets/images/edit-button.svg" alt="Start interactive mode">
   </a>`
 
 
@@ -275,7 +275,7 @@ initFunction(addThebelabButtonToCodeCells);
 
 
   <!-- Load the auto-generating TOC -->
-  <script src="/jupyter-book/assets/js/tocbot.min.js"  type="text/javascript"></script>
+  <script src="/assets/js/tocbot.min.js"  type="text/javascript"></script>
   <script>
 var initToc = function () {
   tocbot.init({
@@ -294,7 +294,7 @@ initFunction(initToc);
 </script>
 
   <!-- Google analytics -->
-  <script src="/jupyter-book/assets/js/ga.js" async></script>
+  <script src="/assets/js/ga.js" async></script>
 
   <!-- Clipboard copy button -->
   <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" async></script>
@@ -308,7 +308,7 @@ const codeCellId = index => `codecell${index}`
 
 const clipboardButton = id =>
   `<a id="copy-button-${id}" class="btn copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#${id}">
-    <img src="/jupyter-book/assets/images/copy-button.svg" alt="Copy to clipboard">
+    <img src="/assets/images/copy-button.svg" alt="Copy to clipboard">
   </a>`
 
 // Clears selected text since ClipboardJS will select the text when copying
@@ -449,11 +449,11 @@ initFunction(initHiddenCells);
 
 
   <!-- Load custom website scripts -->
-  <script src="/jupyter-book/assets/js/scripts.js" async></script>
+  <script src="/assets/js/scripts.js" async></script>
 
   <!-- Load custom user CSS and JS  -->
-  <script src="/jupyter-book/assets/custom/custom.js" async></script>
-  <link rel="stylesheet" href="/jupyter-book/assets/custom/custom.css">
+  <script src="/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/assets/custom/custom.css">
 
   <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
   
@@ -600,7 +600,7 @@ document.addEventListener('turbolinks:load', updateInteractLink)
 
 
   <!-- Lunr search code - will only be executed on the /search page -->
-  <script src="/jupyter-book/assets/js/lunr/lunr.min.js" type="text/javascript"></script>
+  <script src="/assets/js/lunr/lunr.min.js" type="text/javascript"></script>
   <script>var initQuery = function() {
   // See if we have a search box
   var searchInput = document.querySelector('input#lunr_search');
@@ -696,8 +696,8 @@ initFunction(initQuery);
 
 
 <nav id="js-sidebar" class="c-textbook__sidebar">
-  <a href="https://jupyter.org/jupyter-book/intro.html"><img src="/jupyter-book/images/logo/logo.png" class="textbook_logo" id="sidebar-logo" data-turbolinks-permanent/></a>
-  <h2 class="c-sidebar__title">Jupyter Book</h2>
+  
+  <h2 class="c-sidebar__title">SQL Server ML Services</h2>
   <ul class="c-sidebar__chapters">
     
       
@@ -710,7 +710,7 @@ initFunction(initQuery);
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/jupyter-book/01.html"
+          href="/01.html"
         >
           
           SQL Server Machine Learning Services Architecture
@@ -731,7 +731,7 @@ initFunction(initQuery);
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/jupyter-book/02.html"
+          href="/02.html"
         >
           
           Project Methodology And Data Science
@@ -752,7 +752,7 @@ initFunction(initQuery);
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/jupyter-book/03.html"
+          href="/03.html"
         >
           
           Phase 1 - Business Understanding
@@ -773,7 +773,7 @@ initFunction(initQuery);
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/jupyter-book/04.html"
+          href="/04.html"
         >
           
           Phase 2 - Data Acquisition and Understanding
@@ -794,7 +794,7 @@ initFunction(initQuery);
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/jupyter-book/05.html"
+          href="/05.html"
         >
           
           Phase 3 - Modeling
@@ -815,7 +815,7 @@ initFunction(initQuery);
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/jupyter-book/06.html"
+          href="/06.html"
         >
           
           Phase 4 - Deployment
@@ -836,7 +836,7 @@ initFunction(initQuery);
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/jupyter-book/07.html"
+          href="/07.html"
         >
           
           Phase 5 - Customer Acceptance and Model Retraining
@@ -884,7 +884,7 @@ initFunction(initQuery);
             "Workshop: Microsoft SQL Server Machine Learning Services A Microsoft Course from the SQL Server team SQL Server Machine Learning Services Architecture Installing SQL Server Machine Learning Services Although you completed this in your pre-requisites for this course, here’s a quick review of installing the Machine Learning Services features for SQL Server. In this course, you’re focusing on SQL Server version 2019. You can install SQL Server Machine Learning Services (as of SQL Server 2019) on the following Editions: Enterprise (basic and enhanced functions) Standard (basic and enhanced functions) Web (basic functions) Express with Advanced Services (basic functions) The R language...",
         "categories": [],
         "tags": [],
-        "url": "http://0.0.0.0:4000/jupyter-book/01.html",
+        "url": "http://0.0.0.0:4000/01.html",
         "teaser":null},{
         "title": "Project Methodology And Data Science",
         
@@ -892,7 +892,7 @@ initFunction(initQuery);
             "Workshop: Microsoft SQL Server Machine Learning Services A Microsoft Course from the SQL Server team Project Methodology and Data Science 2.1 Creating a Data Science Project This course covers the Process and Platform you can use for Data Science projects, using SQL Server 2019 (or higher). Using Machine Learning Services inside a database engine allows you to keep the data integrity you have built into your RDBMS, provides a high level of security, the ability to work on premises, in the cloud, or in a hybrid fashion, and eliminates data travel outside your database environment. It also allows your data...",
         "categories": [],
         "tags": [],
-        "url": "http://0.0.0.0:4000/jupyter-book/02.html",
+        "url": "http://0.0.0.0:4000/02.html",
         "teaser":null},{
         "title": "Phase 1 - Business Understanding",
         
@@ -900,7 +900,7 @@ initFunction(initQuery);
             "Workshop: Microsoft SQL Server Machine Learning Services A Microsoft Course from the SQL Server team 03 - Phase 1: Business Understanding Business Understanding You’re learning to use the Team Data Science Process to create a complete solution, using SQL Server as the platform. The phases in the Team Data Science process are: 1 - Business Understanding (This module) 2 - Data Acquisition and Understanding 3 - Modeling 4 - Deployment 5 - Customer Acceptance and Model Retraining Now that the Project is underway (the *Implementation* in your project plan), you'll follow the Data Science Process for teams, and implement each...",
         "categories": [],
         "tags": [],
-        "url": "http://0.0.0.0:4000/jupyter-book/03.html",
+        "url": "http://0.0.0.0:4000/03.html",
         "teaser":null},{
         "title": "Phase 2 - Data Acquisition and Understanding",
         
@@ -908,7 +908,7 @@ initFunction(initQuery);
             "Workshop: Microsoft SQL Server Machine Learning Services A Microsoft Course from the SQL Server team 04 - Phase 2: Data Acquisition and Understanding Data Acquisition and Understanding&lt;/p&gt; You're learning to use the Team Data Science Process to create a complete solution, using SQL Server as the platform. The phases in the Team Data Science process are: 1 - Business Understanding 2 - Data Acquisition and Understanding (This module) 3 - Modeling 4 - Deployment 5 - Customer Acceptance and Model Retraining From Business Intelligence you're familiar with Extract, Transform and Load (ETL) to prepare data for historical, pre-aggregated storage for...",
         "categories": [],
         "tags": [],
-        "url": "http://0.0.0.0:4000/jupyter-book/04.html",
+        "url": "http://0.0.0.0:4000/04.html",
         "teaser":null},{
         "title": "Phase 3 - Modeling",
         
@@ -916,7 +916,7 @@ initFunction(initQuery);
             "Workshop: Microsoft SQL Server Machine Learning Services A Microsoft Course from the SQL Server team 05 - Phase 3: Modeling You’re learning to use the Team Data Science Process to create a complete solution, using SQL Server as the platform. The phases in the Team Data Science process are: 1 - Business Understanding 2 - Data Acquisition and Understanding 3 - Modeling (This module) 4 - Deployment 5 - Customer Acceptance and Model Retraining 3.0 Modeling In this phase, you'll perform feature engineering, create the experiment runs, and run experiments with various settings and parameters. After selecting the best performing...",
         "categories": [],
         "tags": [],
-        "url": "http://0.0.0.0:4000/jupyter-book/05.html",
+        "url": "http://0.0.0.0:4000/05.html",
         "teaser":null},{
         "title": "Phase 4 - Deployment",
         
@@ -924,7 +924,7 @@ initFunction(initQuery);
             "Workshop: Microsoft SQL Server Machine Learning Services A Microsoft Course from the SQL Server team 06 - Phase 4: Deployment Phase 4 - Deployment You’re learning to use the Team Data Science Process to create a complete solution, using SQL Server as the platform. The phases in the Team Data Science process are: 1 - Business Understanding 2 - Data Acquisition and Understanding 3 - Modeling&lt;/i&gt; 4 - Deployment (This module)&lt;/dt&gt; 5 - Customer Acceptance and Model Retraining 4.0 - Deployment Overview In this phase you'll take the Trained Model from the Azure environment and then use the Model in...",
         "categories": [],
         "tags": [],
-        "url": "http://0.0.0.0:4000/jupyter-book/06.html",
+        "url": "http://0.0.0.0:4000/06.html",
         "teaser":null},{
         "title": "Phase 5 - Customer Acceptance and Model Retraining",
         
@@ -932,7 +932,7 @@ initFunction(initQuery);
             "Workshop: Microsoft SQL Server Machine Learning Services A Microsoft Course from the SQL Server team 07 - Phase 5: Customer Acceptance and Model Retraining You’re learning to use the Team Data Science Process to create a complete solution, using SQL Server as the platform. The phases in the Team Data Science process are: 1 - Business Understanding 2 - Data Acquisition and Understanding 3 - Modeling 4 - Deployment 5 - Customer Acceptance and Model Retraining (This module) The final phase of the Team Data Science Process involves testing the model predictions on real-world queries to ensure that it meets...",
         "categories": [],
         "tags": [],
-        "url": "http://0.0.0.0:4000/jupyter-book/07.html",
+        "url": "http://0.0.0.0:4000/07.html",
         "teaser":null},]
 </script>
               <nav class="c-page__nav">
