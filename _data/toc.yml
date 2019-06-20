@@ -1,5 +1,3 @@
-# This file contains the order and numbering for all sections in the book.
-#
 # Each entry has the following schema:
 #
 # - title: mytitle   # Title of chapter or section
@@ -15,34 +13,49 @@
 # - search: true  # Will provide a link to a search page
 # - divider: true  # Will insert a divider in the sidebar
 # - header: My Header  # Will insert a header with no link in the sidebar
+#
+# ==============================
+# AUTOMATICALLY GENERATED TOC FILE.
+# You should review the contents of this file, re-order items as you wish,
+# and nest chapters in sections if you wish. The ======= symbols represent 
+# folder breaks.
+# 
+# See the demo `toc.yml` for the right structure to follow. You can 
+# generate a demo book by running `jupyter-book create mybook --demo`
+# ==============================
 
-- title: SQL Server Machine Learning Services Architecture
-  url: /01
-  not_numbered: true
 
-- title: Project Methodology And Data Science
-  url: /02
-  not_numbered: true
 
-- title: Phase 1 - Business Understanding
-  url: /03
-  not_numbered: true
-
-- title: Phase 2 - Data Acquisition and Understanding
-  url: /04
-  not_numbered: true
-
-- title: Phase 3 - Modeling
-  url: /05
-  not_numbered: true
-
-- title: Phase 4 - Deployment
-  url: /06
-  not_numbered: true
-
-- title: Phase 5 - Customer Acceptance and Model Retraining
-  url: /07
-  not_numbered: true
-      
-- title: Search
-  search: true      
+# ===== NEW SECTION ========================================
+- title: Azure Settings
+  url: Azure_Settings
+- title: Big Data Cluster Settings
+  url: Big_Data_Cluster_Settings
+- title: Create Aks Cluster For Linux
+  url: Create_AKS_Cluster_for_Linux
+- title: Create An Azure Resource Group
+  url: Create_an_Azure_Resource_Group
+- title: Create Sql Server Big Data Cluster
+  url: Create_SQL_Server_Big_Data_Cluster
+- title: Default Settings For Linux
+  url: Default_Settings_for_Linux
+- title: Delete Aks Cluster
+  url: Delete_AKS_Cluster
+- title: Delete Azure Resource Group
+  url: Delete_Azure_Resource_Group
+- title: Install Azure Cli
+  url: Install_Azure_CLI
+- title: Install Kubernetes Cli For Linux
+  url: Install_Kubernetes_CLI_for_Linux
+- title: Install Mssqlctl Cli For Linux
+  url: Install_MSSQLCTL_CLI_for_Linux
+- title: Login To Azure
+  url: Login_to_Azure
+- title: Login To Sql Server Big Data Cluster
+  url: Login_to_SQL_Server_Big_Data_Cluster
+- title: Show Big Data Cluster Endpoints
+  url: Show_Big_Data_Cluster_Endpoints
+- title: Uninstall Az Cli
+  url: Uninstall_AZ_CLI
+- title: Uninstall Mssqlctl
+  url: Uninstall_MSSQLCTL
